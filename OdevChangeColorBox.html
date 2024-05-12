@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            margin: 0 auto;
+        }
+
+        .group{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .color-box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid silver;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="group">
+            <h4>please write color name</h4>
+            <input id="ileft" type="text"><br>
+            <button id="bleft">Change Color</button>
+            <br>
+            <div id="dleft" class="color-box"></div>
+        </div>
+        <div class="group">
+            <h4>please write color name</h4>
+            <input id="icenter" type="text"><br>
+            <button id="bcenter">Change Color</button>
+            <br>
+            <div id="dcenter" class="color-box"></div>
+        </div>
+        <div class="group">
+            <h4>please write color name</h4>
+            <input id="iright" type="text"><br>
+            <button id="bright" onclick="changeColor('iright','dright')">Change Color</button>
+            <br>
+            <div id="dright" class="color-box"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        function changeColor(inputId,divId){
+            const color=document.getElementById(inputId).value;
+            document.getElementById(divId).style.backgroundColor=color;
+        }
+
+        document.getElementById("bleft").addEventListener("click",function(){
+            changeColor("ileft","dleft");
+        });
+        document.getElementById("bcenter").addEventListener("click",function(){
+            changeColor("icenter","dcenter");
+        });
+        // document.getElementById("bright").addEventListener("click",function(){
+        //     changeColor("iright","dright");
+        // });
+    </script>
+</body>
+</html>
